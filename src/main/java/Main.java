@@ -1,21 +1,20 @@
 import java.sql.*;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String HOST = "localhost"; // default host
-        String PORT = "5432"; // default PostgreSQL port
-        String DATABASE = "testdb"; // My database
-        String USER = "postgres"; // My account in PostgreSQL Server
-        String PASSWORD = "Dbrnjhbz2004"; // My password in PostgreSQL Server
+        LoginDB pg = new LoginDB();
 
-        String URL = "jdbc:postgresql://" + HOST + ":" + PORT + "/" + DATABASE;
-        String sqlQuery = "SELECT * FROM book";
+        String url = pg.getUrlDB();
+        String sqlQuery = "SELECT pd.fk_pilot_id, a.model_id, a.capacity, a.num_pilots " +
+                "FROM pilot_driving pd LEFT JOIN model_airbus a ON pd.fk_model_id=a.model_id";
 
-        try(Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        try(Connection connection = DriverManager.getConnection(
+                url, pg.getUser(), pg.getPassword());
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sqlQuery)) {
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("title"));
+                System.out.println(resultSet.getString("fk_pilot_id"));
             }
         }catch (SQLException e){
             e.printStackTrace();
