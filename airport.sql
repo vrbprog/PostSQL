@@ -13,7 +13,7 @@ INSERT INTO model(model_name, num_seats,num_pilots) VALUES
 
 CREATE TABLE airpark(
 	id serial PRIMARY KEY,
-	sernum varchar(128) NOT NULL,
+	sernum varchar(128) UNIQUE NOT NULL,
 	model_id int REFERENCES model(id)
 );
 
