@@ -29,11 +29,11 @@ public class PlaneInfo {
 
     @Override
     public String toString() {
-        return "PlaneInfo{" +
-                "planeID='" + planeID + '\'' +
-                ", numPilots='" + numPilots + '\'' +
-                ", countOfPlanes=" + numPlanes +
-                ", numOfPass=" + numOfPass +
-                '}';
+        return "PlaneInfo{"
+                + "planeID='" + planeID + '\''
+                + ", numPilots='" + numPilots + '\''
+                + ", countOfPlanes=" + numPlanes
+                + ", numOfPass=" + numOfPass
+                + '}';
     }
 }
