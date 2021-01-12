@@ -1,8 +1,8 @@
 public class PlaneInfo {
-    String planeID;
-    String numPilots;
-    int numPlanes;
-    int numOfPass;
+    private String planeID;
+    private String numPilots;
+    private int numPlanes;
+    private int numOfPass;
 
     public PlaneInfo(String planeID, String numPilots, int numPlanes, int numOfPass) {
         this.planeID = planeID;
